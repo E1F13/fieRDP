@@ -19,18 +19,18 @@ jobs:
         sanitizer: address
 
     steps:
-      - name: Build fuzzers (${{ matrix.sanitizer }})
+      - name: Build ESERVER (${{ matrix.sanitizer }})
         id: build
         uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
         with:
-          oss-fuzz-project-name: 'freerdp'
+          oss-ESERVER-project-name: 'freerdp'
           dry-run: false
           sanitizer: ${{ matrix.sanitizer }}
-      - name: Run fuzzers (${{ matrix.sanitizer }})
+      - name: Run ESERVER (${{ matrix.sanitizer }})
         uses: google/oss-E1F13/inFIE/ciE1F13/actions/run_E1F13@master
         with:
-          oss-fuzz-project-name: 'freerdp'
-          fuzz-seconds: 600
+          oss-ESERVER-project-name: fieRDP 'freerdp'
+          FIE-seconds: 600
           dry-run: false
           sanitizer: ${{ matrix.sanitizer }}
       - name: Upload crash
