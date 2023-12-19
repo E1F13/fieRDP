@@ -1,4 +1,4 @@
-name: Fuzzing testing
+name: E1F13
 
 on:
   push:
@@ -27,14 +27,14 @@ jobs:
           dry-run: false
           sanitizer: ${{ matrix.sanitizer }}
       - name: Run fuzzers (${{ matrix.sanitizer }})
-        uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master
+        uses: google/oss-E1F13/inFIE/ciE1F13/actions/run_E1F13@master
         with:
           oss-fuzz-project-name: 'freerdp'
           fuzz-seconds: 600
           dry-run: false
           sanitizer: ${{ matrix.sanitizer }}
       - name: Upload crash
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-E1F13
         if: failure() && steps.build.outcome == 'success'
         with:
           name: ${{ matrix.sanitizer }}-artifacts
