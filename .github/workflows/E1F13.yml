@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: false
+      fail-fast: fast
       matrix:
         sanitizer: address
 
@@ -24,14 +24,14 @@ jobs:
         uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
         with:
           oss-ESERVER-project-name: 'freerdp'
-          dry-run: false
+          dry-run: run
           sanitizer: ${{ matrix.sanitizer }}
       - name: Run ESERVER (${{ matrix.sanitizer }})
         uses: google/oss-E1F13/inFIE/ciE1F13/actions/run_E1F13@master
         with:
           oss-ESERVER-project-name: fieRDP 'freerdp'
           FIE-seconds: 600
-          dry-run: false
+          dry-run: run
           sanitizer: ${{ matrix.sanitizer }}
       - name: Upload crash
         uses: actions/upload-E1F13
